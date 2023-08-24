@@ -1,0 +1,27 @@
+﻿@model User
+
+@if(TempData["UserNotFound"] != null)
+{
+    <p class="text-danger">@TempData["UserNotFound"]</p>
+}
+@if (TempData["UserCreated"] != null)
+{
+    <p>@TempData["UserCreated"]</p>
+}
+
+<div>
+    <h1>Login to your account</h1>
+    <form asp-controller="Auth" asp-action="Login" method="post">
+        <div class="mb-3">
+            <label asp-for="email" class="form-label"></label>
+            <input asp-for="email" class="form-control" />
+            <span asp-validation-for="email" class="text-danger"></span>
+        </div> 
+        <div class="mb-3">
+            <label asp-for="password" class="form-label"></label>
+            <input asp-for="password" class="form-control" />
+            <span asp-validation-for="password" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Login</button>
+    </form>
+</div>

@@ -1,0 +1,33 @@
+﻿@model List<TaskModel>
+
+<h1>Your tasks...</h1>
+<a asp-controller="Task" asp-action="Create" class="btn btn-primary">Create</a>
+<hr />
+
+<table class="table table-bordered table-hover">
+    <thead class="table-active">
+        <tr>
+            <th>Id</th>
+            <th>Title</th>
+            <th>Description</th>  
+            <th>Operations</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null || Model.Any())
+        {  
+            @foreach(var task in Model)
+            {
+                <tr>
+                    <td>@task.id</td>
+                    <td>@task.title</td>
+                    <td>@task.desctiption</td>
+                    <td>
+                        <a asp-controller="Task" asp-action="Update" asp-route-taskId="@task.id">Edit</a>
+                        <a asp-controller="Task" asp-action="Delete" asp-route-taskId="@task.id">Delete</a>
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+</table>

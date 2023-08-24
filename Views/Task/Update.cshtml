@@ -1,0 +1,18 @@
+﻿@model TaskModel
+
+<h1>Update a task</h1>
+
+<form asp-controller="Task" asp-action="Update" method="post">
+    <input type="hidden" asp-for="id" />
+    <div class="mb-3">
+        <label class="form-label" asp-for="title"></label>
+        <input asp-for="title" class="form-control" />
+        <span class="text-danger" asp-validation-for="title"></span>
+    </div>
+    <div class="mb-3">
+        <label class="form-label" asp-for="desctiption"></label>
+        <input asp-for="desctiption" class="form-control" />
+        <span class="text-danger" asp-validation-for="desctiption"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Update Task</button>
+</form>
